@@ -30,7 +30,7 @@ Guide complet pour générer un rapport de sécurité AD avec Docker.
                       ▼
               ┌───────────────┐
               │    Neo4j      │  ← Conteneur Docker
-              │   (5.26.0)    │
+              │   (4.4.12)    │
               └───────┬───────┘
                       │
               ┌───────┴───────┐
