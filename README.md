@@ -92,25 +92,51 @@ ADMiner is also available on some Linux distributions:
 - BlackArch: `pacman -S ad-miner`
 - NixOS: `nix-env -iA nixos.ad-miner`
 
-A Docker image is available to build. Build the image with the following commmand:
+## Docker ##
+
+### Quick Start with Docker Compose ###
+
+The easiest way to run AD-Miner with Neo4j:
+
+```sh
+# Start Neo4j and AD-Miner
+docker-compose up -d
+
+# Generate report
+docker-compose run ad-miner
+```
+
+Access:
+- Neo4j Browser: http://localhost:7474 (user: neo4j, pass: adminer)
+- Reports: `./render_report/`
+
+### Using Docker Image from GHCR ###
+
+Pull the pre-built image:
+
+```sh
+docker pull ghcr.io/ad-security/ad_miner:latest
+```
+
+### Build manually ###
 
 ```sh
 docker build -t ad-miner .
 ```
 
-To run this on Windows with the BloodHound Community Edition data, use the commands below:
+To run on Windows with BloodHound Community Edition:
 
 ```sh
 docker run -v ${PWD}:/tmp ad-miner AD-miner -b bolt://host.docker.internal:7687 -u neo4j -p mypassword -cf YOUR_PREFIX
 ```
 
-To run this on Linux with the BloodHound Community Edition data, use the commands below:
+To run on Linux:
 
 ```sh
 docker run -v ${PWD}:/tmp --network host ad-miner AD-miner -b bolt://localhost:7687 -u neo4j -p mypassword -cf YOUR_PREFIX
 ```
 
-Note that mounting the volume with `-v` is critical to get the output of the data. This assumes that the BHCE server is running on the Docker host with default settings. 
+Note: Mounting the volume with `-v` is critical to get the output. 
 
 ## Usage ##
 
